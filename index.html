@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Styled Stories</title>
+    <style>
+        body {
+            font-family: 'montserrat';
+		color: #1a1b1f;
+            margin: 20px;
+            background-color: white;
+        }
+
+        .search-container {
+            margin-bottom: 20px;
+		padding-right: 20px;
+		
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+		margin-top: 10px;
+            margin-bottom: 20px;
+            border: 1px solid #1a1b1f;
+            border-radius: 4px;
+        }
+
+        .stories-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .story {
+            background: whitw;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            transition: transform 0.2s;
+            cursor: pointer;
+        }
+
+        .story:hover {
+            transform: translateY(-5px);
+        }
+
+        .story-image {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+        }
+
+        .story-content {
+            padding: 15px;
+        }
+
+        .story-title {
+            font-size: 1.25em;
+            margin-bottom: 10px;
+            color: #1a1b1f;
+        }
+
+        .story-description {
+            color:#575757;
+            margin-bottom: 10px;
+        }
+
+        .tags-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        .tag {
+            background: #eaeaea;
+            padding: 5px 10px;
+            border-radius: 12px;
+            font-size: 0.85em;
+            color: #555;
+        }
+
+        .date {
+            font-size: 0.85em;
+		padding-top: 5px;
+            color: #777;
+        }
+    </style>
+</head>
+<body>
+    <div class="search-container">
+        <label for="search-input">Search Stories:</label>
+        <input type="text" id="search-input" placeholder="Type to search...">
+    </div>
+
+    <div class="stories-container" id="stories-container">
+        <div class="story">
+            <img src="blog4.jpg"Story 1" class="story-image">
+            <div class="story-content">
+                <div class="story-title">7 Things About Web Design Your Boss Wants to Know</div>
+                <div class="story-description">Culpa non amet. Autem est sed in itaque reiciendis dicta id...</div>
+                <div class="tags-container">
+                    <span class="tag">Technology</span>
+                    <span class="date">Mar 18</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story">
+            <img src="blog3.jpg" alt="Story 2" class="story-image">
+            <div class="story-content">
+                <div class="story-title">The Worst Advice We’ve Ever Heard About Web Design</div>
+                <div class="story-description">Illo dicta tempore id voluptas aut. Accusamus quae...</div>
+                <div class="tags-container">
+                    <span class="tag">Culture</span>
+                    <span class="date">Mar 18</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story">
+            <img src="blog1.jpg" alt="Story 3" class="story-image">
+            <div class="story-content">
+                <div class="story-title">The History of Web Design</div>
+                <div class="story-description">Amet voluptatem cum debitis qui veniam qui laudantium...</div>
+                <div class="tags-container">
+			  <span class="tag">Lifestyle</span>
+                    <span class="date">Mar 18</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="story">
+            <img src="blog5.jpg"Story 4" class="story-image">
+            <div class="story-content">
+                <div class="story-title">7 Ways to Improve Website Usability and Accessibility</div>
+                <div class="story-description">Laborum libero neque. Vel sequi amet sed...</div>
+                <div class="tags-container">
+			  <span class="tag">Programming</span>
+                    <span class="date">Mar 18</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        document.getElementById('search-input').addEventListener('input', function () {
+            const filter = this.value.toLowerCase();
+            const stories = document.querySelectorAll('.story');
+
+            stories.forEach(story => {
+                const title = story.querySelector('.story-title').textContent.toLowerCase();
+                if (title.includes(filter)) {
+                    story.style.display = 'block';
+                } else {
+                    story.style.display = 'none';
+                }
+            });
+        });
+    </script>
+</body>
+</html>
